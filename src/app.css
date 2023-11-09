@@ -1,0 +1,122 @@
+@import url('https://fonts.googleapis.com/css2?family=JetBrains+Mono:wght@300;400&family=Playfair:opsz@5..1200&family=Tiro+Gurmukhi&display=swap');
+
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+:root{
+    --bg-color: #0C0E0F;
+    --pm-color: #efad06;
+    --ac-color: #36e570;
+    --tx-color: white;
+    --gr-color: rgba(255, 255, 255, 0.136);
+
+    --mn-font: 'JetBrains Mono', monospace;
+    --hd-font: 'Tiro Gurmukli', serif;
+    --rd-font: 'Playfair', serif;
+}
+
+.mn-font{
+    font-family: var(--mn-font);
+}
+.hd-font{
+    font-family: var(--hd-font);
+}
+.rd-font{
+    font-family: var(--rd-font);
+}
+
+*{
+    padding: 0px;
+    margin: 0px;
+}
+
+body{
+    background-color: var(--bg-color);
+    color: var(--tx-color);
+}
+
+hr{
+    margin: 20px 0px;
+}
+
+.input-container{
+    font-family: var(--mn-font) !important;
+}
+
+.pm-input{
+    width: 100%;
+
+    background-color: var(--gr-color);
+    color: var(--tx-color);
+
+    font-size: 1rem;
+    font-weight: normal;
+    font-family: var(--mn-font);
+
+    padding: 0.9rem;
+    outline: none;
+    border-radius: 10px;
+
+    transition: all ease-in-out 0.2s;
+}
+
+/* .pm-input:not(placeholder-shown){ */
+/*     border: solid var(--ac-color) 1px; */
+/*     background-color: #36e57057; */
+/* } */
+/* .pm-input:placeholder-shown{ */
+/*     border: none; */
+/*     background-color: var(--gr-color); */
+/* } */
+
+.pm-input:hover,
+.pm-input:focus{
+    font-weight: bold;
+
+    background-color: var(--tx-color);
+    color: var(--bg-color);
+
+    transform: translate(-3px, -3px);
+    box-shadow: 3px 3px 0px var(--ac-color);
+}
+
+.autocomplete-input{
+    padding: 1rem !important;
+}
+.autocomplete{
+    width: 100% !important;
+    min-width: 0px !important;
+}
+
+.svelte-tags-input-layout{
+    background-color: var(--gr-color) !important;
+    border: none !important;
+    padding: 0.7rem !important;
+    border-radius: 10px !important;
+    outline: none !important;
+    transition: all ease-in-out 0.2s;
+}
+.svelte-tags-input{
+    font-family: var(--mn-font) !important;
+}
+
+.svelte-tags-input-layout:has(button){
+    border: solid var(--ac-color) 1px !important;
+    background-color: #36e57057 !important;
+}
+
+.svelte-tags-input-layout:hover,
+.svelte-tags-input-layout:focus {
+    font-weight: bold !important;
+
+    background-color: var(--tx-color) !important;
+    color: var(--bg-color) !important;
+
+    transform: translate(-3px, -3px) !important;
+    box-shadow: 3px 3px 0px var(--ac-color) !important;
+}
+
+.svelte-tags-input-matchs-parent{
+    color: var(--bg-color) !important; 
+}
