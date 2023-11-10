@@ -47,16 +47,17 @@ hr{
 .pm-input{
     width: 100%;
 
-    background-color: var(--gr-color);
+    background-color: transparent;
+    border-bottom: solid var(--gr-color) 2px;
     color: var(--tx-color);
 
-    font-size: 1rem;
+    font-size: 0.8rem;
     font-weight: normal;
     font-family: var(--mn-font);
 
-    padding: 0.9rem;
+    padding: 0.9rem 0px; 
+    padding-top: 0px;
     outline: none;
-    border-radius: 10px;
 
     transition: all ease-in-out 0.2s;
 }
@@ -72,17 +73,31 @@ hr{
 
 .pm-input:hover,
 .pm-input:focus{
-    font-weight: bold;
+    padding: 1rem 0px !important;
+    border-bottom: solid var(--ac-color) 2px;
+}
 
-    background-color: var(--tx-color);
+button{
+    font-family: var(--mn-font);
+}
+
+.sd-button{
+    padding: 0.5rem 2rem;
+    background-color: var(--gr-color);
+    border-radius: 0.5rem;
+    outline: none;
+    transition: all ease-in-out 0.1s;
+}
+.sd-button:hover,
+.sd-button:focus{
+    background-color: var(--ac-color);
     color: var(--bg-color);
-
-    transform: translate(-3px, -3px);
-    box-shadow: 3px 3px 0px var(--ac-color);
 }
 
 .autocomplete-input{
-    padding: 1rem !important;
+    padding: 1rem 0px !important;
+    padding-top: 0px !important;
+    font-size: 0.8rem !important;
 }
 .autocomplete{
     width: 100% !important;
@@ -90,10 +105,11 @@ hr{
 }
 
 .svelte-tags-input-layout{
-    background-color: var(--gr-color) !important;
+    background-color: transparent !important;
     border: none !important;
-    padding: 0.7rem !important;
-    border-radius: 10px !important;
+    border-bottom: solid 2px var(--gr-color) !important;
+    padding: 0.5rem 0px !important;
+    padding-top: 0px !important;
     outline: none !important;
     transition: all ease-in-out 0.2s;
 }
@@ -101,22 +117,24 @@ hr{
     font-family: var(--mn-font) !important;
 }
 
-.svelte-tags-input-layout:has(button){
-    border: solid var(--ac-color) 1px !important;
-    background-color: #36e57057 !important;
-}
+/* .svelte-tags-input-layout:has(button){ */
+/*     border: solid var(--ac-color) 1px !important; */
+/*     background-color: #36e57057 !important; */
+/* } */
 
 .svelte-tags-input-layout:hover,
 .svelte-tags-input-layout:focus {
-    font-weight: bold !important;
+    padding: 1rem 0px !important;
+    border-bottom: solid var(--ac-color) 2px !important;
+}
 
-    background-color: var(--tx-color) !important;
+.svelte-tags-input-layout button{
+    background-color: white !important;
     color: var(--bg-color) !important;
-
-    transform: translate(-3px, -3px) !important;
-    box-shadow: 3px 3px 0px var(--ac-color) !important;
 }
 
 .svelte-tags-input-matchs-parent{
     color: var(--bg-color) !important; 
 }
+
+

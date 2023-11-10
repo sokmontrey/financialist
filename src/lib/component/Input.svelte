@@ -2,18 +2,31 @@
     import AutoComplete from 'simple-svelte-autocomplete';
     import Tags from 'svelte-tags-input';
 
-    export let input_schema;
-    export let placeholder;
-    let type = input_schema.type;
-    let default_func = input_schema.default;
+    export let schema;
+    export let schema_key;
+    export let index;
+
+    let this_schema = schema[schema_key];
+    let type = this_schema.type;
+
+    //combine (union) choices without duplicate
+    // $: this_schema.value, type === 'multiple-select' 
+    //     ? this_schema.choices = [...new Set(this_schema.choices.concat(this_schema.value))]
+    //         .filter((item) => { return !!item; }) 
+    //     : null;
 </script>
 
 {#if type === "select"}
-    <AutoComplete items={input_schema.choices} inputClassName='pm-input' placeholder={placeholder} />
+    <AutoComplete items={this_schema.choices} bind:selectedItem={this_schema.value} onCreate={(new_v)=>{
+        this_schema.choices = [...this_schema.choices, new_v]
+        return new_v;
+    }} create inputClassName='pm-input' placeholder={schema_key} />
 {:else if type === "multiple-select"}
-    <Tags autoComplete={input_schema.choices} addKeys={[13, 188]} placeholder={placeholder}/>
-{:else}
-    <input type={type} class='pm-input' value={eval(`(${default_func})()`)} placeholder={placeholder}/>
+    <Tags autoComplete={this_schema.choices} bind:tags={this_schema.value} addKeys={[13, 188]} placeholder={schema_key}/>
+{:else if type === "number"}
+    <input type="number" autofocus={!index} class='pm-input' bind:value={this_schema.value} placeholder={schema_key}/>
+{:else if type === "text"}
+    <input type="text" autofocus={!index} class='pm-input' bind:value={this_schema.value} placeholder={schema_key}/>
 {/if}
 
 
