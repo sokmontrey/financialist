@@ -8,12 +8,6 @@
 
     let this_schema = schema[schema_key];
     let type = this_schema.type;
-
-    //combine (union) choices without duplicate
-    // $: this_schema.value, type === 'multiple-select' 
-    //     ? this_schema.choices = [...new Set(this_schema.choices.concat(this_schema.value))]
-    //         .filter((item) => { return !!item; }) 
-    //     : null;
 </script>
 
 {#if type === "select"}

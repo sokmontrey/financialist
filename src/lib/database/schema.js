@@ -5,7 +5,8 @@ const default_schema = {
         "type": "number",
         "default": "()=>\"\"",
         "width": 30,
-        "value": ""
+        "value": "",
+        "required": true
     },
     "Categories": {
         "type": "select",
@@ -15,7 +16,8 @@ const default_schema = {
         ],
         "default": "()=>\"food\"",
         "width": 70,
-        "value": ""
+        "value": "",
+        "required": true
     },
     "Tags": {
         "type": "multiple-select",
@@ -25,37 +27,43 @@ const default_schema = {
         ],
         "default": "()=>\"\"",
         "width": 70,
-        "value": ""
+        "value": "",
+        "required": true
     },
     "Name": {
         "type": "text",
         "default": "()=>\"No Named\"",
         "width": 30,
-        "value": ""
+        "value": "",
+        "required": true
     },
     "Day": {
         "type": "number",
         "default": "()=>new Date().getDate()",
         "width": 33,
-        "value": ""
+        "value": "",
+        "required": true
     },
     "Month": {
         "type": "number",
         "default": "()=>new Date().getMonth()+1",
         "width": 33,
-        "value": ""
+        "value": "",
+        "required": true
     },
     "Year": {
         "type": "number",
         "default": "()=>new Date().getYear() + 1900",
         "width": 33,
-        "value": ""
+        "value": "",
+        "required": true
     },
     "ID": {
         "type": "text",
         "default": "()=>Date.now()",
         "width": 100,
-        "value": ""
+        "value": "",
+        "required": true
     }
 };
 
@@ -71,7 +79,7 @@ export async function getSchema (schema_type) {
     }
 } 
 
-export async function updateSchemaChoices (schema_type, schema_with_choices) {
+export async function writeNewSchemaChoices (schema_type, schema_with_choices) {
     try{
         const db = await GetDatabase('config');
         const schema = await getSchema(schema_type);

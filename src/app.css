@@ -59,7 +59,7 @@ hr{
     padding-top: 0px;
     outline: none;
 
-    transition: all ease-in-out 0.2s;
+    transition: all ease-in-out 0.1s;
 }
 
 /* .pm-input:not(placeholder-shown){ */
@@ -73,8 +73,7 @@ hr{
 
 .pm-input:hover,
 .pm-input:focus{
-    padding: 1rem 0px !important;
-    border-bottom: solid var(--ac-color) 2px;
+    border-bottom: solid var(--ac-color) 4px;
 }
 
 button{
@@ -111,7 +110,7 @@ button{
     padding: 0.5rem 0px !important;
     padding-top: 0px !important;
     outline: none !important;
-    transition: all ease-in-out 0.2s;
+    transition: all ease-in-out 0.1s;
 }
 .svelte-tags-input{
     font-family: var(--mn-font) !important;
@@ -124,8 +123,7 @@ button{
 
 .svelte-tags-input-layout:hover,
 .svelte-tags-input-layout:focus {
-    padding: 1rem 0px !important;
-    border-bottom: solid var(--ac-color) 2px !important;
+    border-bottom: solid var(--ac-color) 4px !important;
 }
 
 .svelte-tags-input-layout button{
