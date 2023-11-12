@@ -14,8 +14,7 @@
     <div class='mx-3 border-l border-1 border-[#ffffff22]'></div>
 
     <div class='rounded-md w-full p-5 pt-0 pl-0'>
-        <h2 class='hd-font text-xl opacity-50 pl-5'>Recent Logs</h2>
-
+        <h2 class='hd-font text-xl opacity-50 pl-5 mb-5'>Recent Logs</h2>
         <RecentLog />
     </div>
 </main>
