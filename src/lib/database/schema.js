@@ -81,12 +81,14 @@ export async function getSchema (schema_type) {
 
 export async function writeNewSchemaChoices (schema_type, schema_with_choices) {
     try{
-        const db = await GetDatabase('config');
         const schema = await getSchema(schema_type);
         schema_with_choices.forEach( ([key, {choices}])=> {
             schema[key].choices = choices;
         });
-        return await Write(db, 'schema', schema_type, schema);
+        return await Write(
+            await GetDatabase('config'), 
+            'schema', schema_type, schema
+        );
     }catch(err){
         console.error("updateSchemaChoices Error:", err)
         return null;

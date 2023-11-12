@@ -65,28 +65,49 @@ async function readFile(path){
         return null;
     }
 }
+export async function GetCollections(database){
+    try{
+        return await getDirectory(database.path);
+    }catch(err){
+        console.error("GetCollection Error: ", err);
+        return null
+    }
+}
+
+export async function GetIDs(database, collection){
+    try{
+        const json_file = await getDirectory(database.path+'/'+collection)
+        return json_file.map(name=>name.slice(0, -5));
+    }catch(err){
+        console.error("GetIDs Error: ", err);
+        return null
+    }
+}
 
 export async function Read(database, collection=null, id=null){
     try{
         if (collection && id) {
             return await readFile(database.path+'/'+collection+'/'+id+'.json');
-        } 
-        const path =  database.path +'/' + 
-            (collection ? collection+'/' : '');
-        const name_array = await getDirectory(path);
-        const data = {};
-        if (!collection) {
-            name_array.forEach(async(name)=>
-                data[name] = await Read( database, name )
-            );
-        } else {
-            name_array.forEach(async(name)=>
-                data[name.slice(0, -5)] = await Read(database, collection, name.slice(0, -5))
-            );
         }
+
+        const name_arr = !collection
+            ? await GetCollections(database)
+            : await GetIDs(database, collection);
+
+        const data = {};
+        (!collection
+            ? await GetCollections(database)
+            : await GetIDs(database, collection)
+        ).forEach(!collection
+            ? async(name)=>data[name]=await Read(database,name)
+            : async(name)=>data[name]=await Read(database,collection,name)
+        );
+
         return data;
+
     }catch(err){
         console.error("Read Error: ", err);
         return null
     }
 }
+

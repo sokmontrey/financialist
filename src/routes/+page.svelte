@@ -1,5 +1,6 @@
 <script>
     import LogInput from '$lib/component/LogInput.svelte';
+    import RecentLog from '$lib/component/RecentLog.svelte'; 
 </script>
 
 <main class='flex px-5 py-5 w-full h-[100vh]'>
@@ -14,6 +15,8 @@
 
     <div class='rounded-md w-full p-5 pt-0 pl-0'>
         <h2 class='hd-font text-xl opacity-50 pl-5'>Recent Logs</h2>
+
+        <RecentLog />
     </div>
 </main>
 
